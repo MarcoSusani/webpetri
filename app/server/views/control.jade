@@ -1,0 +1,46 @@
+div#control-container.row-fluid
+	div.span6.text-left
+		button(type='button')#new-petri-net.btn.btn-success.btn-large
+				i.icon-th.icon-white
+				| New Petri Net
+	div.span6.text-right
+		button(type='button',disabled='disabled',title='Coming soon..')#new-room.btn.btn-info.btn-large
+				i.icon-comment.icon-white
+				| New Room
+	div.row-fluid	
+		div#petri-net-list-container.span12
+			div#petri-net-list.well
+				ul#pn-list.nav.nav-list
+					li.nav-header Petri Net List
+						- for (var i = 0; i < petrinets.length; i++)
+							- var top = 85 + (24 * i);
+								li
+									a
+										b(style='cursor:pointer;', onclick='openNetBold(this,"' + petrinets[i]._id + '");')=petrinets[i].name
+									div(style="float: right; position: absolute; top: "+top+"px; left: 260px;").btn-group
+										button(type="button", data-toggle="dropdown", style="float: right; margin-top: -1px; margin-right: 10px;").btn.btn-danger.btn-mini.dropdown-toggle
+											span.caret
+										ul(role="menu").dropdown-menu
+											li 
+												a(href="#", onclick='confirmDeleteNet("' + petrinets[i]._id + '","' + petrinets[i].name + '");') Delete
+											li
+												a(href="#", onclick='downloadWithName(this,"' + petrinets[i]._id + '","'+ petrinets[i].name +'.png")') Export as image
+
+	div.row-fluid
+		div#room-list-container.span12
+			div#room-list.well
+				ul#rm-list.nav.nav-list
+					li.nav-header Room List coming soon..
+						- for (var i = 0; i < rooms.length; i++)
+								li
+									a
+										b(style='cursor:pointer;', onclick='openRoom("' + rooms[i]._id + '");')=rooms[i].name
+										button(type='button', id=rooms[i]._id, style='float: right; margin-top: -1px; margin-right: 10px;',
+										onclick='deleteRoom("' + rooms[i]._id + '");').btn.btn-danger.btn-mini 
+											i(style='padding-left: 0').icon-trash.icon-white
+	div.row-fluid
+		div#info-container.span12
+			span developed by 
+				a(href="mailto: susani.marco@gmail.com", title="susani.marco@gmail.com") Marco Susani
+
+

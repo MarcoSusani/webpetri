@@ -1,0 +1,17 @@
+
+#report-bug.modal-single-input.modal.hide.fade
+    div.modal-header
+        button.close(data-dismiss='modal') x
+        h3 Report a bug
+    div.modal-body
+        form( method="post")#report-bug-form.well.span5
+            p Explain the problem
+            textarea(name="bug", id='bug-tf', rows='10', required).span5
+            button(type="submit")#submit.btn.btn-primary Submit
+            button(data-dismiss="modal")#cancel.btn Cancel
+    div.modal-footer
+        div.alert.alert-error.hide
+            button(data-dismiss="alert").close
+
+script(src='/js/views/report.js')
+script(src='/js/form-validators/reportValidator.js')

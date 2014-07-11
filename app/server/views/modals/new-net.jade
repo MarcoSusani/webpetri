@@ -1,0 +1,14 @@
+
+#get-name-net.modal-single-input.modal.hide.fade
+    div.modal-header
+        button.close(data-dismiss='modal') x
+        h3 New Petri Net
+    div.modal-body
+        form( method="post")#get-name-net-form.well.span5
+            p Enter the name of new Petri Net
+            input(type="text", name="name", id='name-pn', required).span5
+            button(type="submit")#submit.btn.btn-primary Submit
+            button(data-dismiss="modal")#cancel.btn Cancel
+    div.modal-footer
+        div.alert.alert-error.hide
+            button(data-dismiss="alert").close

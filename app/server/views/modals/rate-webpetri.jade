@@ -1,0 +1,49 @@
+
+#rate-webpetri.modal-single-input.modal.hide.fade
+    div.modal-header
+        button.close(data-dismiss='modal') x
+        h3 Rate WebPetri
+    div.modal-body
+        form( method="post")#rate-webpetri-form.well.span5
+            p Rate
+            div.starRate
+                div
+                    b
+                ul
+                    - for (var i = 5; i > 0; i--)
+                        li
+                            a(onclick='setStar(this, '+i+');', onmouseover='overStar(this);', onmouseout='outStar(this);')
+                                span= "Give it " + i + " stars"
+            input(type="hidden", name="rate", id='rate-tf').span5                              
+            p Comment (optional)
+            textarea(name="comment", id='comment-tf', rows='10').span5
+            button(type="submit")#submit.btn.btn-primary Submit
+            button(data-dismiss="modal")#cancel.btn Cancel
+    div.modal-footer
+        div.alert.alert-error.hide
+            button(data-dismiss="alert").close
+
+script(src='/js/views/rate.js')
+script(src='/js/form-validators/rateValidator.js')
+
+script
+    var selectedStar;
+
+    function setStar(a, star){
+        selectedStar = a;
+        $(a).addClass('selected');
+        $("#rate-tf").val(star);
+    }
+
+    function overStar(a){
+        var selectedStar = $(".starRate a.selected");
+
+        $(".starRate a").removeClass('selected');
+
+        $(a).css('background-position','left -32px');
+    }
+
+    function outStar(a){
+        $(a).css('background-position','');
+        $(selectedStar).addClass('selected');
+    }

@@ -1,0 +1,14 @@
+
+#get-name-room.modal-single-input.modal.hide.fade
+    div.modal-header
+        button.close(data-dismiss='modal') x
+        h3 New Room
+    div.modal-body
+        form( method="post")#get-name-room-form.well.span5
+            p Enter the name of new Room
+            input(type="text", name="name", id='name-tf', required).span5
+            button(type="submit")#submit.btn.btn-primary Submit
+            button(data-dismiss="modal")#cancel.btn Cancel
+    div.modal-footer
+        div.alert.alert-error.hide
+            button(data-dismiss="alert").close

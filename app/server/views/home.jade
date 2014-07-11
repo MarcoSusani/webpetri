@@ -1,0 +1,31 @@
+
+extends layout
+
+block content
+	include navbar
+
+	include main-content
+
+	include modals/alert
+	include modals/new-net
+	include modals/new-room
+	include modals/confirm
+
+	script(src='/js/controllers/WebPetri.js')
+	script(src='/js/controllers/Simulation.js')
+	script(src='/js/views/home.js')
+	script
+		window.name = 'home';
+
+block scripts
+	//script(src="/socket.io/socket.io.js")
+	script(src='/vendor/jquery.min.js')
+	script(src='/vendor/jquery.form.js')
+	script(src='/vendor/bootstrap.js')
+	script(src='/vendor/kinetic-v4.6.0.js')
+	//script(src='http://www.html5canvastutorials.com/libraries/kinetic-v4.6.0-beta.js')
+	//script(src='/vendor/bootstrap-modal.js')
+	//script(src='/vendor/bootstrap-transition.js')
+
+	script(src='/js/controllers/homeController.js')
+	script(src='/js/form-validators/accountValidator.js')

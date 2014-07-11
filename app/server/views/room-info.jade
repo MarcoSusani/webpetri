@@ -1,0 +1,31 @@
+- function containsUser(array, user){
+	- var i = array.length;
+	- while (i--) {
+		- if (array[i].user === user.user) {
+			- return true;
+		- }
+	- }
+	- return false;
+- }
+
+div#room-info-container.row-fluid
+	div.span6.text-left
+		p#room-name=room.name
+	div.span6.text-right
+		button(type='button')#leave-room.btn.btn-info.btn-large
+				i.icon-comment.icon-white
+				| Leave
+	div.row-fluid
+		div#user-list-container.span12
+			div#user-list.well
+				ul#usr-list.nav.nav-list
+					li.nav-header User List
+						- for (var i = 0; i < room.users.length; i++)
+								li
+									- if(room.users[i].user !== udata.user)
+										a=room.users[i].user
+											- if(containsUser(petrinet.user, room.users[i]))
+												img(src='/img/online.png', style='float: right; margin-top: 5px')
+
+
+
